@@ -3,7 +3,6 @@ const statusCode = res.statusCode? res.statusCode : 500;
 const {constants} = require("../constants");
 
 
-
 switch(statusCode){
     case constants.VALIDATION_ERROR:
     res.json({
@@ -44,8 +43,6 @@ switch(statusCode){
         console.log("non error or good")
         break;
 }
-
-
 };
 
 module.exports = errorHandler;
