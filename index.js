@@ -4,6 +4,7 @@ const contactRoutes = require("./routes/contactRoutes")
 const cors = require("cors");
 const errorHandler = require("./middleware/errorHandler")
 const connectDb = require("./config/db");
+const authRoutes = require("./routes/userRoutes");
 
 dotenv.config();
 const app = express();
@@ -22,6 +23,7 @@ app.listen(PORT, ()=>{
 connectDb();
 
 app.use("/api/contacts", contactRoutes);
+app.use("api/users",  authRoutes);
 
 app.get("/", (req, res)=>{
 res.status(200).json({message:"Get all contacts"});
