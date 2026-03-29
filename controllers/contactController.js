@@ -1,11 +1,12 @@
 // Desc get all contacts
 // route GET /api/contacts
+
 const express = require("express");
 const asyncHandler = require("express-async-handler");
 const Contact = require("../models/contactModels");
 
 const getContact = asyncHandler(async(req, res)=>{
-    const contact = await Contact.findById(req.params.id); 
+    const contact = await Contact.findById(req.params.id);
     
     if(!contact){
         res.status(404);
@@ -67,13 +68,12 @@ const deleteContact = asyncHandler(async (req, res) => {
   });
 });
 
-
 module.exports = { 
     getContact, 
     createContact, 
     getContacts, 
     deleteContact, 
     updateContact
-}
+};
 
 

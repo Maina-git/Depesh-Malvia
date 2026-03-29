@@ -1,8 +1,8 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const contactRoutes = require("./routes/contactRoutes")
-const cors = require("cors");
-const errorHandler = require("./middleware/errorHandler")
+const contactRoutes = require("./routes/contactRoutes");
+//const cors = require("cors");
+const errorHandler = require("./middleware/errorHandler");
 const connectDb = require("./config/db");
 const authRoutes = require("./routes/userRoutes");
 
@@ -23,7 +23,7 @@ app.listen(PORT, ()=>{
 connectDb();
 
 app.use("/api/contacts", contactRoutes);
-app.use("api/users",  authRoutes);
+app.use("/api/users",  authRoutes);
 
 app.get("/", (req, res)=>{
 res.status(200).json({message:"Get all contacts"});
@@ -31,7 +31,7 @@ res.status(200).json({message:"Get all contacts"});
 
 
 
- 
+
 
 
 
